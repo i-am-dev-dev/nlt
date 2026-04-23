@@ -37,20 +37,20 @@ Supported package managers: `apt`, `dnf`, `pacman`, `zypper`, `apk`
 ### 1. Download the script
 
 ```bash
-curl -o nlt.sh https://raw.githubusercontent.com/i-am-dev-dev/nlt/refs/heads/main/nlt.sh
+curl -o nlt https://raw.githubusercontent.com/i-am-dev-dev/nlt/refs/heads/main/nlt.sh
 ```
 
 ### 2. Make it executable
 
 ```bash
-chmod +x nlt.sh
+chmod +x nlt
 ```
 
 ### 3. Move it into your local bin so it's available anywhere
 
 ```bash
 mkdir -p ~/.local/bin
-mv nlt.sh ~/.local/bin/
+mv nlt ~/.local/bin/
 ```
 
 ### 4. Add `~/.local/bin` to your PATH (if not already there)
@@ -62,14 +62,14 @@ source ~/.bashrc
 
 > If you use Zsh, replace `~/.bashrc` with `~/.zshrc`.
 
-You can now run `nlt.sh` from any directory without specifying a path.
+You can now run `nlt` from any directory without specifying a path.
 
 ---
 
 ## Usage
 
 ```
-nlt.sh <brightness> <temp1> [temp2]
+nlt <brightness> <temp1> [temp2]
 ```
 
 | Argument | Type | Range | Description |
@@ -88,7 +88,7 @@ These are tried and tested presets for common situations. Use them as a starting
 
 ### Daytime work — slight dimming, neutral warmth
 ```bash
-nlt.sh 0.9 4500
+nlt 0.9 4500
 ```
 Takes the harsh edge off without changing the character of the display much. Good for long coding or writing sessions during the day.
 
@@ -96,7 +96,7 @@ Takes the harsh edge off without changing the character of the display much. Goo
 
 ### Reading — soft warmth, full brightness
 ```bash
-nlt.sh 1.0 3500
+nlt 1.0 3500
 ```
 Keeps brightness up so text stays crisp, but shifts the tone warm to reduce eye strain. Good for articles, docs, or ebooks in the evening.
 
@@ -104,7 +104,7 @@ Keeps brightness up so text stays crisp, but shifts the tone warm to reduce eye 
 
 ### Night work — dimmed with warm filter
 ```bash
-nlt.sh 0.8 3200 3200
+nlt 0.8 3200 3200
 ```
 The everyday night mode. Noticeably softer than default, easy on the eyes for general use, browsing, or light tasks after dark.
 
@@ -112,7 +112,7 @@ The everyday night mode. Noticeably softer than default, easy on the eyes for ge
 
 ### Late night video — darker, warmer
 ```bash
-nlt.sh 0.7 2500
+nlt 0.7 2500
 ```
 Best for watching videos or films at night. The deeper warmth stops the screen from dominating a dark room, and the lower brightness lets your eyes settle.
 
@@ -123,7 +123,7 @@ Best for watching videos or films at night. The deeper warmth stops the screen f
 To restore your display to full brightness and remove the color filter:
 
 ```bash
-nlt.sh 1.0 4500
+nlt 1.0 4500
 ```
 
 Or if you want to fully clear the redshift filter independently:

@@ -136,8 +136,9 @@ redshift -x
 
 ## Behavior
 
-The script resets display settings before applying new values to prevent stacking brightness changes or incorrect color states.
-The script also resets the display settings whenever it is executed with invalid display input, ensuring the system remains in a stable and usable state.
+- The script resets display settings before applying new values.
+- This prevents cumulative brightness reduction or incorrect color states.
+- Invalid input also triggers a reset to ensure a usable display state.
 
 ---
 

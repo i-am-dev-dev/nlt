@@ -9,11 +9,11 @@ It's 11pm. You're winding down, maybe reading an article or finishing up some li
 ---
 
 Internal Links
-[Installation](#installation)
-[Usage](#usage)
-[Resetting filters](#reset)
-[Recommended Settings](#recommended-settings)
-[Behavior](#behavior)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Resetting filters](#reset)
+- [Recommended Settings](#recommended-settings)
+- [Behavior](#behavior)
 
 ---
 ## What It Does

@@ -8,6 +8,14 @@ It's 11pm. You're winding down, maybe reading an article or finishing up some li
 
 ---
 
+Internal Links
+[Installation](#installation)
+[Usage](#usage)
+[Resetting filters](#reset)
+[Recommended Settings](#recommended-settings)
+[Behavior](#behavior)
+
+---
 ## What It Does
 
 - Detects **all connected displays** automatically via `xrandr` — works on single and multi-monitor setups without any manual configuration
@@ -68,7 +76,7 @@ You can now run `nlt` from any directory without specifying a path.
 
 ## Usage
 
-```
+```bash
 nlt <brightness> <temp1> [temp2]
 ```
 
@@ -79,6 +87,19 @@ nlt <brightness> <temp1> [temp2]
 | `temp2` | integer | 2500 – 4500 | *(Optional)* A second temperature applied after temp1 |
 
 Lower Kelvin = warmer/more orange. Higher Kelvin = cooler/more white.
+
+```bash
+nlt <command>
+```
+
+| Command     | Description   |
+| ----------- | ------------- |
+| -h / --help | shows help    |
+| clear       | clear filters |
+| night       | 0.8 3200 3200 |
+| evening     | 0.8 3200      |
+| read        | 0.7 2500 2500 |
+
 
 ---
 

@@ -112,6 +112,7 @@ error_exit() {
     echo "Error: $1"
     echo "Resetting display..."
     redshift -x
+    echo -e "\ndone"
     exit 1
 }
 
@@ -131,14 +132,54 @@ is_int_in_range() {
 check_dependencies
 
 # ---- INPUT CHECK ----
-if (( $# < 2 || $# > 3 )); then
+if [[ "$1" == "-h" || "$1" == "--help" ]]; then
     echo "Usage: $0 <brightness> <temp1> [temp2]"
-    exit 1
+    echo -e "Brightness takes a value between 0.4 and 1.0 \n0.4 is the lowest multiplier\n1.0 is the current brightness"
+    echo "temp1 should be between 2500 and 4500"
+    echo "temp2 can either be empty or should have value between 2500 and 4500"
+    echo -e "temp:2500 warmest temprature \ntemp:4500 cooler temprature"
+    echo -e "recomendation:\n0.8 3200 for evening\n0.8 3200 3200 for night\n0.7 2500 2500 for reading"
+    echo -e "use command night for night mode\ncommand evening for evening mode\ncommand read for late night reading mode"
+    echo "use command clear to remove all filters"
+    exit 0
 fi
 
-BRIGHTNESS=$1
-TEMP1=$2
-TEMP2=$3
+# ---- PRESETS ----
+case "$1" in
+    night)
+        echo "Night mode"
+        BRIGHTNESS=0.8
+        TEMP1=3200
+        TEMP2=3200
+        ;;
+    evening)
+        echo "Evening mode"
+        BRIGHTNESS=0.8
+        TEMP1=3200
+        ;;
+    read)
+        echo "Reading mode"
+        BRIGHTNESS=0.7
+        TEMP1=2500
+        TEMP2=2500
+        ;;
+    clear)
+        echo "Clear Screen"
+        error_exit
+        ;;  
+    *)
+        # ---- VALIDATION ONLY FOR NORMAL INPUT ----
+        if (( $# < 2 || $# > 3 )); then
+            echo "Invalid input"
+            echo "Use command -h or command --help"
+            exit 1
+        fi
+
+        BRIGHTNESS=$1
+        TEMP1=$2
+        TEMP2=$3
+        ;;
+esac
 
 # ---- VALIDATE BRIGHTNESS ----
 if ! is_float_in_range "$BRIGHTNESS"; then
@@ -166,4 +207,3 @@ if [[ -n "$TEMP2" ]]; then
 fi
 
 echo "Done."
-
